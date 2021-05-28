@@ -7,7 +7,7 @@ pygame.init()
 font  = pygame.font.Font('arial.ttf',25)
 
 BLOCK_SIZE = 20
-SPEED = 20
+SPEED = 9
 
 #rgb colors
 WHITE = (255,255,255)
@@ -91,6 +91,7 @@ class snakeGame:
 
         #5. update ui and clock
         self._update_ui()
+        SPEED = len(self.snake)*3
         self.clock.tick(SPEED)
 
         #6. return game over and score
