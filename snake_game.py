@@ -77,13 +77,13 @@ class snakeGame:
         self.display.fill(BLACK)
 
         for pt in self.snake:
-            pygame.draw(self.display, BLUE1, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))
-            pygame.draw(self.display, BLUE2, pygame.Rect(pt.x + 4, pt.y + 4, 12, 12))
+            pygame.draw.rect(self.display, BLUE1, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))
+            pygame.draw.rect(self.display, BLUE2, pygame.Rect(pt.x + 4, pt.y + 4, 12, 12))
 
-        pygame.draw(self.display, RED, pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE))
+        pygame.draw.rect(self.display, RED, pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE))
 
-        text = font.render("Score: " , str(self.score), True, WHITE)
-        self.display.blit(text,[0,0])
+        text = font.render("Score: "  + str(self.score), True, WHITE)
+        self.display.blit(text, [0 , 0])
         pygame.display.flip()
 
 
@@ -95,6 +95,7 @@ if __name__ == '__main__':
     game = snakeGame()
 
     while True:
+        pygame.event.get()
         game_over, score = game.playStep()
 
         if game_over:
