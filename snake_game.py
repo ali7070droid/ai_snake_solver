@@ -82,10 +82,10 @@ class snakeGameAI:
         #3. check if game over
         reward = 0
         game_over = False
-        if self._is_collision() or self.frame_iteration > 100*len(self.snake):
+        if self.is_collision() or self.frame_iteration > 100*len(self.snake):
             reward-=10
             game_over = True
-            return reward, game_over, score
+            return reward, game_over, self.score
         
         #4. place new food or jsut move
         if self.head == self.food:
@@ -147,7 +147,7 @@ class snakeGameAI:
 
         self.head = Point(x,y)
 
-    def _is_collision(self,pt = None):
+    def is_collision(self,pt = None):
         #hits the boundary
         if pt is None:
             pt = self.head
